@@ -27,7 +27,7 @@ ARG FLINK_VERSION=1.20.0
 
 RUN set -ex; \
   apt-get update && \
-  apt-get install -y python3 python3-pip python3-dev && rm -rf /var/lib/apt/lists/*
+  apt-get install -y python3 python3-pip python3-dev && rm -rf /var/lib/apt/lists/* \
   pip install apache-flink==${FLINK_VERSION}; \
   pip install kafka-python;
 
