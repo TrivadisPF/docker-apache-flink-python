@@ -25,9 +25,6 @@ LABEL maintainer="Guido Schmutz"
 
 ARG FLINK_VERSION=1.20.0
 
-# Install python3.7 and pyflink
-# Pyflink does not yet function with python3.9, and this image is build on
-# debian bullseye which ships with that version, so build python3.7 here.
 RUN set -ex; \
   apt-get update && \
   apt-get install -y python3 python3-pip python3-dev && rm -rf /var/lib/apt/lists/*
