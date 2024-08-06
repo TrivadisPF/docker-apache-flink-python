@@ -20,22 +20,16 @@
 # Build PyFlink Playground Image
 ###############################################################################
 
-FROM apache/flink:1.20.0-scala_2.12-java17
+FROM apache/flink:1.19.1-scala_2.12-java17
 LABEL maintainer="Guido Schmutz"
 
-ARG FLINK_VERSION=1.20.0
+ARG FLINK_VERSION=1.19.1
 
 RUN set -ex; \
   apt-get update && \
   apt-get install -y python3 python3-pip python3-dev && rm -rf /var/lib/apt/lists/* \
   pip install apache-flink==${FLINK_VERSION}; \
   pip install kafka-python;
-
-# Download connector libraries
-#RUN wget -P /opt/flink/lib/ https://repo.maven.apache.org/maven2/org/apache/flink/flink-json/${FLINK_VERSION}/flink-json-${FLINK_VERSION}.jar; \
-#    wget -P /opt/flink/lib/ https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-kafka/${FLINK_VERSION}/flink-sql-connector-kafka-${FLINK_VERSION}.jar; \
-#    wget -P /opt/flink/lib/ https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-elasticsearch7/${FLINK_VERSION}/flink-sql-connector-elasticsearch7-${FLINK_VERSION}.jar;
-
 
 RUN echo "taskmanager.memory.jvm-metaspace.size: 512m" >> /opt/flink/conf/flink-conf.yaml;
 
