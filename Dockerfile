@@ -20,10 +20,10 @@
 # Build PyFlink Playground Image
 ###############################################################################
 
-FROM apache/flink:1.19.1-scala_2.12-java17
+FROM apache/flink:2.1.1-scala_2.12-java17
 LABEL maintainer="Guido Schmutz"
 
-ARG FLINK_VERSION=1.19.1
+ARG FLINK_VERSION=2.1.1
 
 RUN set -ex; \
   apt-get update && \
