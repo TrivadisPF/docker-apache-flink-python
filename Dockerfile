@@ -20,7 +20,7 @@
 # Build PyFlink Playground Image
 ###############################################################################
 
-FROM apache/flink:2.1.1-scala_2.12-java17
+FROM apache/flink:2.1.1-scala_2.12-java21
 LABEL maintainer="Guido Schmutz"
 
 ARG FLINK_VERSION=2.1.1
